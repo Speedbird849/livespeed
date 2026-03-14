@@ -37,7 +37,7 @@ def display_loop():
         if (time.monotonic() - last > 0.5):
             speed = int(speed*0.75)
         else:
-            speed = calculate_wpm()
+            speed = int(0.2 * calculate_wpm() + 0.8 * speed)
         print(speed)
         time.sleep(0.2)
 
