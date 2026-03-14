@@ -26,7 +26,7 @@ def calculate_wpm():
     while (times and times[0] < cutoff):
         times.popleft()
 
-    elapsed = (times[-1] - times[0]) / 60
+    elapsed = (now - times[0]) / 60
     if (elapsed == 0): 
         return 0
     return int((len(times) / 5) / elapsed)
