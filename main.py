@@ -35,7 +35,7 @@ def display_loop():
     global speed
     while True:
         if (time.monotonic() - last > 0.5):
-            speed = int(speed*0.95)
+            speed = int(speed*0.75)
         else:
             speed = calculate_wpm()
         print(speed)
