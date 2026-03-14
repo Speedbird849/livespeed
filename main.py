@@ -13,13 +13,12 @@ def on_press(key):
         pass
 
 times = deque()
-window = 1
 speed = 0
 last = 0
 
 def calculate_wpm():
     now = time.monotonic()
-    cutoff = now - window
+    cutoff = now - 1
 
     if not times:
         return 0
