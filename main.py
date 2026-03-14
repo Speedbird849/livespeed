@@ -3,18 +3,23 @@ from collections import deque
 import threading
 import time
 
+
 def on_press(key):
+    global last
     try:
         if key.char is not None:
             times.append(time.monotonic())
+            last = time.monotonic()
     except AttributeError:
         pass
 
 times = deque()
-
 window = 1
+speed = 0
+last = 0
 
 def calculate_wpm():
+
     now = time.monotonic()
     cutoff = now - window
 
@@ -27,8 +32,13 @@ def calculate_wpm():
     return int((len(times) / 5) / (window / 60))
 
 def display_loop():
+    global speed
     while True:
-        print(calculate_wpm())
+        if (time.monotonic() - last > 0.5):
+            speed = int(speed*0.95)
+        else:
+            speed = calculate_wpm()
+        print(speed)
         time.sleep(0.2)
 
 t = threading.Thread(target=display_loop, daemon=True)
