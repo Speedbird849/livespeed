@@ -5,6 +5,8 @@ import time
 
 def on_press(key):
     global last
+    if (key == keyboard.Key.f1):
+        return False
     try:
         if key.char is not None:
             times.append(time.monotonic())
