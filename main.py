@@ -3,7 +3,6 @@ from collections import deque
 import threading
 import time
 
-
 def on_press(key):
     global last
     try:
@@ -19,7 +18,6 @@ speed = 0
 last = 0
 
 def calculate_wpm():
-
     now = time.monotonic()
     cutoff = now - window
 
@@ -29,7 +27,10 @@ def calculate_wpm():
     while (times and times[0] < cutoff):
         times.popleft()
 
-    return int((len(times) / 5) / (window / 60))
+    elapsed = (times[-1] - times[0]) / 60
+    if (elapsed == 0): 
+        return 0
+    return int((len(times) / 5) / elapsed)
 
 def display_loop():
     global speed
