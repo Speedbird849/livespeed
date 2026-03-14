@@ -2,6 +2,8 @@ from pynput import keyboard
 from collections import deque
 import threading
 import time
+import pystray
+from PIL import Image, ImageDraw
 
 def on_press(key):
     global last
@@ -41,7 +43,14 @@ def display_loop():
         else:
             speed = int(0.2 * calculate_wpm() + 0.8 * speed)
         print(speed)
+        create_icon(speed)
         time.sleep(0.2)
+
+def create_icon(wpm):
+    img = Image.new("RGBA", (64, 64), (0, 0, 0, 255))
+    draw = ImageDraw.Draw(img)
+    draw.text((10, 20), str(wpm), fill=(255, 255, 255, 255))
+    return img
 
 t = threading.Thread(target=display_loop, daemon=True)
 t.start()
