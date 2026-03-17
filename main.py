@@ -53,13 +53,14 @@ def keyboard_loop():
 def create_icon(wpm):
     img = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 28)
+    font = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 38)
     x, y = 5, 18
     draw.text((x-1, y), str(wpm), font=font, fill="black")
     draw.text((x+1, y), str(wpm), font=font, fill="black")
     draw.text((x, y-1), str(wpm), font=font, fill="black")
     draw.text((x, y+1), str(wpm), font=font, fill="black")
     draw.text((x, y), str(wpm), font=font, fill="white")
+    draw.text((x, y + 10), "WPM", font=font, fill="white")
     return img
 
 icon = pystray.Icon("wpm", create_icon(0), "WPM")
