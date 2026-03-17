@@ -51,7 +51,7 @@ def keyboard_loop():
         listener.join()
 
 def create_icon(wpm):
-    img = Image.new("RGBA", (64, 64), (0, 0, 0, 255))
+    img = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 28)
     x, y = 5, 18
