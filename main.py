@@ -43,8 +43,12 @@ def display_loop():
         else:
             speed = int(0.2 * calculate_wpm() + 0.8 * speed)
         print(speed)
-        create_icon(speed)
+        icon.icon = create_icon(speed)
         time.sleep(0.2)
+
+def keyboard_loop():
+    with keyboard.Listener(on_press=on_press) as listener:
+        listener.join()
 
 def create_icon(wpm):
     img = Image.new("RGBA", (64, 64), (0, 0, 0, 255))
@@ -52,8 +56,12 @@ def create_icon(wpm):
     draw.text((10, 20), str(wpm), fill=(255, 255, 255, 255))
     return img
 
+icon = pystray.Icon("wpm", create_icon(0), "WPM")
+
 t = threading.Thread(target=display_loop, daemon=True)
 t.start()
 
-with keyboard.Listener(on_press=on_press) as listener:
-    listener.join()
+k = threading.Thread(target=keyboard_loop, daemon=True)
+k.start()
+
+icon.run()
