@@ -33,7 +33,7 @@ def calculate_wpm():
     elapsed = (now - times[0]) / 60
     if (elapsed == 0): 
         return 0
-    return int((len(times) / 5) / elapsed)
+    return int((len(times) / 4) / elapsed)
 
 def display_loop():
     global speed
@@ -54,13 +54,13 @@ def create_icon(wpm):
     img = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 36)
-    x, y = 5, 2
+    x, y = 5, 0
     draw.text((x-1, y), str(wpm), font=font, fill="black")
     draw.text((x+1, y), str(wpm), font=font, fill="black")
     draw.text((x, y-1), str(wpm), font=font, fill="black")
     draw.text((x, y+1), str(wpm), font=font, fill="black")
     draw.text((x, y), str(wpm), font=font, fill="white")
-    draw.text((x, y + 30), "WPM", font=font, fill="white")
+    draw.text((x, y + 34), "WPM", font=font, fill="white")
     return img
 
 icon = pystray.Icon("wpm", create_icon(0), "WPM")
