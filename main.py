@@ -3,7 +3,7 @@ from collections import deque
 import threading
 import time
 import pystray
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
 
 def on_press(key):
     global last
@@ -53,7 +53,13 @@ def keyboard_loop():
 def create_icon(wpm):
     img = Image.new("RGBA", (64, 64), (0, 0, 0, 255))
     draw = ImageDraw.Draw(img)
-    draw.text((10, 20), str(wpm), fill=(255, 255, 255, 255))
+    font = ImageFont.truetype("C:/Windows/Fonts/consolab.ttf", 28)
+    x, y = 5, 18
+    draw.text((x-1, y), str(wpm), font=font, fill="black")
+    draw.text((x+1, y), str(wpm), font=font, fill="black")
+    draw.text((x, y-1), str(wpm), font=font, fill="black")
+    draw.text((x, y+1), str(wpm), font=font, fill="black")
+    draw.text((x, y), str(wpm), font=font, fill="white")
     return img
 
 icon = pystray.Icon("wpm", create_icon(0), "WPM")
