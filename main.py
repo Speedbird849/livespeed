@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 def on_press(key):
     global last
     if (key == keyboard.Key.f1):
-        return False
+        exit()
     try:
         if key.char is not None:
             times.append(time.monotonic())
@@ -33,7 +33,7 @@ def calculate_wpm():
     elapsed = (now - times[0]) / 60
     if (elapsed == 0): 
         return 0
-    return int((len(times) / 4) / elapsed)
+    return int((len(times) / 5) / elapsed)
 
 def display_loop():
     global speed
