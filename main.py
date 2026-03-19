@@ -8,8 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 def on_press(key):
     global last
     if (key == keyboard.Key.f1):
-        icon.stop()
-        return False
+        exit()
     try:
         if key.char is not None:
             times.append(time.monotonic())
