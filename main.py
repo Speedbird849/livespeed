@@ -75,7 +75,7 @@ class GraphWindow:
     BG = "#0d0d0f"
     GRID = "#1e1e24"
     LINE = "#39ff8f"
-    FILL = "#39ff8f22"
+    FILL = "#39ff8f"
     TEXT = "#a0a0b0"
     FONT_LG = ("Consolas", 36, "bold")
     FONT_SM = ("Consolas", 10)
