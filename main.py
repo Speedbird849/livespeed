@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 def on_press(key):
     global last
-    if (key == keyboard.Key.f1):
+    if (key == keyboard.Key.f8):
         icon.stop()
         return False
     try:
