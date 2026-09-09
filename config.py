@@ -1,7 +1,7 @@
 """LiveSpeed configuration constants and tuning parameters."""
 
 # Keystroke calculation window in seconds
-WINDOW_SECONDS = 3.0
+WINDOW_SECONDS = 1.0
 
 # Exponential Moving Average smoothing factor when actively typing (0.0 - 1.0)
 EMA_ALPHA = 0.25
