@@ -1,4 +1,4 @@
-# ⚡ LiveSpeed
+# LiveSpeed
 
 > Real-time, minimal words-per-minute (WPM) monitor that lives directly in your system tray.
 
@@ -10,14 +10,14 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- **⚡ Real-Time WPM Engine:** Accurately measures cadence using a standard 5 keystrokes/word metric over a rolling time window.
-- **🌊 Exponential Moving Average (EMA):** Smooths out micro-pauses between words so the display remains readable without rapid, jittery number jumping.
-- **📉 Natural Idle Decay:** Automatically fades the speed back to zero when you stop typing.
-- **🔍 Native Tray Typography:** Crisp, pure-white anti-aliased font rendering specifically tuned for high-DPI system trays (no muddy outlines or blurry scaling).
-- **🎛️ Tray Context Menu:** Right-click the icon to view status, reset recorded statistics, or cleanly exit.
-- **🛑 Global Kill Switch:** Press <kbd>F8</kbd> from any application to immediately stop and exit.
+- **Real-Time WPM Engine:** Accurately measures cadence using a standard 5 keystrokes/word metric over a rolling time window.
+- **Exponential Moving Average (EMA):** Smooths out micro-pauses between words so the display remains readable without rapid, jittery number jumping.
+- **Natural Idle Decay:** Automatically fades the speed back to zero when you stop typing.
+- **Native Tray Typography:** Crisp, pure-white anti-aliased font rendering specifically tuned for high-DPI system trays (no muddy outlines or blurry scaling).
+- **Tray Context Menu:** Right-click the icon to view status, reset recorded statistics, or cleanly exit.
+- **Global Kill Switch:** Press <kbd>F8</kbd> from any application to immediately stop and exit.
 
 ---
 
@@ -35,7 +35,7 @@ livespeed/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the repository
 ```bash
@@ -66,7 +66,7 @@ python main.py
 
 ---
 
-## 🔒 Operating System Permissions
+## Operating System Permissions
 
 LiveSpeed uses `pynput` to listen to global keystrokes across applications:
 
@@ -85,7 +85,7 @@ No special permissions required. Works out of the box on Windows 10 and 11.
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 You can easily customize LiveSpeed's responsiveness and appearance by editing `config.py`:
 
@@ -101,7 +101,7 @@ You can easily customize LiveSpeed's responsiveness and appearance by editing `c
 
 ---
 
-## 📐 How It Works
+## How It Works
 
 1. **Keystroke Recording:** Keystrokes (letters, numbers, space, punctuation, and backspace) are captured globally and timestamped with high-precision monotonic time into a thread-safe sliding buffer.
 2. **Rolling Speed Calculation:**
@@ -113,6 +113,6 @@ You can easily customize LiveSpeed's responsiveness and appearance by editing `c
 
 ---
 
-## 📜 License
+## License
 
 Distributed under the MIT License. Feel free to modify and share!
